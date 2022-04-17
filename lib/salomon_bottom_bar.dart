@@ -114,7 +114,7 @@ class SalomonBottomBar extends StatelessWidget {
                               /// best to find a way to make it respond only to padding.
                               height: 20,
                               child: Align(
-                                alignment: Alignment(-0.2, 0.0),
+                                alignment: Alignment.center,
                                 widthFactor: t,
                                 child: Padding(
                                   padding: Directionality.of(context) ==
