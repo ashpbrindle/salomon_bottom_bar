@@ -105,16 +105,7 @@ class SalomonBottomBar extends StatelessWidget {
                               : EdgeInsets.only(left: itemPadding.left * t)),
                       child: Row(
                         children: [
-                          IconTheme(
-                            data: IconThemeData(
-                              color: Color.lerp(
-                                  _unselectedColor, _selectedColor, t),
-                              size: 24,
-                            ),
-                            child: items.indexOf(item) == currentIndex
-                                ? item.activeIcon ?? item.icon
-                                : item.icon,
-                          ),
+                          item.title,
                           ClipRect(
                             child: SizedBox(
                               /// TODO: Constrain item height without a fixed value
@@ -163,9 +154,6 @@ class SalomonBottomBar extends StatelessWidget {
 
 /// A tab to display in a [SalomonBottomBar]
 class SalomonBottomBarItem {
-  /// An icon to display.
-  final Widget icon;
-
   /// An icon to display when this tab bar is active.
   final Widget? activeIcon;
 
@@ -179,7 +167,6 @@ class SalomonBottomBarItem {
   final Color? unselectedColor;
 
   SalomonBottomBarItem({
-    required this.icon,
     required this.title,
     this.selectedColor,
     this.unselectedColor,
