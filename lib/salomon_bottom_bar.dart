@@ -61,6 +61,7 @@ class SalomonBottomBar extends StatelessWidget {
 
     return Container(
       color: backgroundColour,
+      padding: EdgeInsets.all(8),
       child: Row(
         /// Using a different alignment when there are 2 items or less
         /// so it behaves the same as BottomNavigationBar.
