@@ -105,7 +105,7 @@ class SalomonBottomBar extends StatelessWidget {
                               : EdgeInsets.only(left: itemPadding.left * t)),
                       child: Row(
                         children: [
-                          item.title,
+                          if (items.indexOf(item) != currentIndex) item.title,
                           ClipRect(
                             child: SizedBox(
                               /// TODO: Constrain item height without a fixed value

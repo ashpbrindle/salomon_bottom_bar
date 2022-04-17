@@ -34,7 +34,10 @@ class _MyAppState extends State<MyApp> {
             /// Home
             SalomonBottomBarItem(
               // icon: Icon(Icons.home),
-              title: Text("Home"),
+              title: Text("Home",
+                  style: TextStyle(
+                    color: Colors.red,
+                  )),
               selectedColor: Colors.purple,
             ),
 
@@ -43,20 +46,6 @@ class _MyAppState extends State<MyApp> {
               // icon: Icon(Icons.favorite_border),
               title: Text("Likes"),
               selectedColor: Colors.pink,
-            ),
-
-            /// Search
-            SalomonBottomBarItem(
-              // icon: Icon(Icons.search),
-              title: Text("Search"),
-              selectedColor: Colors.orange,
-            ),
-
-            /// Profile
-            SalomonBottomBarItem(
-              // icon: Icon(Icons.person),
-              title: Text("Profile"),
-              selectedColor: Colors.teal,
             ),
           ],
         ),
