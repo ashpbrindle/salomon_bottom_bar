@@ -105,6 +105,16 @@ class SalomonBottomBar extends StatelessWidget {
                               : EdgeInsets.only(left: itemPadding.left * t)),
                       child: Row(
                         children: [
+                          IconTheme(
+                            data: IconThemeData(
+                              color: Color.lerp(
+                                  _unselectedColor, _selectedColor, t),
+                              size: 24,
+                            ),
+                            child: items.indexOf(item) == currentIndex
+                                ? item.activeIcon ?? item.icon
+                                : item.icon,
+                          ),
                           ClipRect(
                             child: SizedBox(
                               /// TODO: Constrain item height without a fixed value
