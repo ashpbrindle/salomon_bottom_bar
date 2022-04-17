@@ -98,41 +98,50 @@ class SalomonBottomBar extends StatelessWidget {
                     highlightColor: _selectedColor.withOpacity(0.1),
                     splashColor: _selectedColor.withOpacity(0.1),
                     hoverColor: _selectedColor.withOpacity(0.1),
-                    child: Row(
-                      children: [
-                        if (items.indexOf(item) != currentIndex) item.title,
-                        ClipRect(
-                          child: SizedBox(
-                            height: 20,
-                            child: Align(
-                              alignment: Alignment.center,
-                              widthFactor: t,
-                              child: Padding(
-                                padding: Directionality.of(context) ==
-                                        TextDirection.ltr
-                                    ? EdgeInsets.only(
-                                        left: itemPadding.left / 2,
-                                        right: itemPadding.right,
-                                      )
-                                    : EdgeInsets.only(
-                                        left: itemPadding.left,
-                                        right: itemPadding.right / 2,
+                    child: Align(
+                      alignment: Alignment.center,
+                      child: Padding(
+                        padding: itemPadding -
+                            (Directionality.of(context) == TextDirection.ltr
+                                ? EdgeInsets.only(right: itemPadding.right * t)
+                                : EdgeInsets.only(left: itemPadding.left * t)),
+                        child: Row(
+                          children: [
+                            if (items.indexOf(item) != currentIndex) item.title,
+                            ClipRect(
+                              child: SizedBox(
+                                height: 20,
+                                child: Align(
+                                  alignment: Alignment.center,
+                                  widthFactor: t,
+                                  child: Padding(
+                                    padding: Directionality.of(context) ==
+                                            TextDirection.ltr
+                                        ? EdgeInsets.only(
+                                            left: itemPadding.left / 2,
+                                            right: itemPadding.right,
+                                          )
+                                        : EdgeInsets.only(
+                                            left: itemPadding.left,
+                                            right: itemPadding.right / 2,
+                                          ),
+                                    child: DefaultTextStyle(
+                                      style: TextStyle(
+                                        color: Color.lerp(
+                                            _selectedColor.withOpacity(0.0),
+                                            _selectedColor,
+                                            t),
+                                        fontWeight: FontWeight.w600,
                                       ),
-                                child: DefaultTextStyle(
-                                  style: TextStyle(
-                                    color: Color.lerp(
-                                        _selectedColor.withOpacity(0.0),
-                                        _selectedColor,
-                                        t),
-                                    fontWeight: FontWeight.w600,
+                                      child: item.title,
+                                    ),
                                   ),
-                                  child: item.title,
                                 ),
                               ),
                             ),
-                          ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
                 );
